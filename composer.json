@@ -1,0 +1,49 @@
+{
+    "name": "slub/dm-norm",
+    "type": "typo3-cms-extension",
+    "description": "This extension provides the functionality of the database developed in the course of the DFG project Geschmacksbildung und Verlagspolitik.",
+    "authors": [
+        {
+            "name": "Matthias Richter",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^11",
+        "illuminate/collections": "^8"
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8",
+        "typo3/testing-framework": "^4.11.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Slub\\DmNorm\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SLUB\\DmNorm\\Tests\\": "Tests"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+        ]
+    },
+    "replace": {
+        "slub/dmnorm": "self.version",
+        "typo3-ter/dmnorm": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "dm_norm",
+            "ignore-as-root": false,
+            "web-dir": ".Build/Web"
+        }
+    }
+}
