@@ -227,7 +227,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @param \Slub\DmNorm\Domain\Repository\GndWorkRepository $workRepository
      */
-    public function injectGndWorkRepository(GndWorkRepository $workRepository)
+    public function injectGndWorkRepository(GndWorkRepository $workRepository): void
     {
         $this->workRepository = $workRepository;
     }
@@ -237,7 +237,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $gndId
      */
-    public function getGndId()
+    public function getGndId(): string
     {
         return $this->gndId;
     }
@@ -246,11 +246,13 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the gndId
      * 
      * @param string $gndId
-     * @return void
+     * @return GndWork
      */
-    public function setGndId($gndId)
+    public function setGndId($gndId): GndWork
     {
         $this->gndId = $gndId;
+
+        return $this;
     }
 
     /**
@@ -258,7 +260,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \Slub\DmNorm\Domain\Model\GndWork $intertextualEntity
      */
-    public function getIntertextualEntity()
+    public function getIntertextualEntity(): GndWork
     {
         return $this->intertextualEntity;
     }
@@ -268,19 +270,9 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $genericTitle
      */
-    public function getGenericTitle()
+    public function getGenericTitle(): string
     {
         return $this->genericTitle;
-    }
-
-    /**
-     * Gets the publishers
-     *
-     * @return void
-     */
-    public function getPublishers()
-    {
-        return $this->publishers;
     }
 
     /**
@@ -288,7 +280,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    private function setFullTitle()
+    private function setFullTitle(): void
     {
         if (isset(self::TITLEMAP[$this->title])) {
             $this->fullTitle = self::TITLEMAP[$this->title];
@@ -314,7 +306,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $fullTitle
      */
-    public function getFullTitle()
+    public function getFullTitle(): string
     {
         return $this->fullTitle;
     }
@@ -324,7 +316,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param string $title
      * @return void
      */
-    private function setTitle($title)
+    private function setTitle($title): void
     {
         $this->title = self::TITLEMAP[$this->genericTitle] ?? $this->genericTitle;
         $this->setFullTitle();
@@ -334,7 +326,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Gets the title
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -344,7 +336,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \DateTime $dateOfProduction
      */
-    public function getDateOfProduction()
+    public function getDateOfProduction(): \DateTime
     {
         return $this->dateOfProduction;
     }
@@ -354,7 +346,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $geographicAreaCode
      */
-    public function getGeographicAreaCode()
+    public function getGeographicAreaCode(): string
     {
         return $this->geographicAreaCode;
     }
@@ -364,7 +356,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $geographicalAreaCode
      */
-    public function getGeographicalAreaCode()
+    public function getGeographicalAreaCode(): string
     {
         return $this->geographicalAreaCode;
     }
@@ -374,7 +366,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \Slub\DmNorm\Domain\Model\GndWork $superWork
      */
-    public function getSuperWork()
+    public function getSuperWork(): GndWork
     {
         return $this->superWork;
     }
@@ -384,7 +376,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $opusNo
      */
-    public function getOpusNo()
+    public function getOpusNo(): string
     {
         return $this->opusNo;
     }
@@ -394,7 +386,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $indexNo
      */
-    public function getIndexNo()
+    public function getIndexNo(): string
     {
         return $this->indexNo;
     }
@@ -404,7 +396,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $mediumOfPerformance
      */
-    public function getMediumOfPerformance()
+    public function getMediumOfPerformance(): string
     {
         return $this->mediumOfPerformance;
     }
@@ -419,12 +411,12 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         GndPersonRepository $personRepository,
         GndInstrumentRepository $instrumentRepo, 
         GndGenreRepository $formRepo
-    )
+    ): void
     {
         // get repositories and object manager in order
         // to create references
         // throw away after getting rid of instrument / form
-        $getQuery = function($gndId) {
+        $getQuery = function(string $gndId): string {
             return 'http://sdvlodpro:9200/gnd_marc21/_search?q=035.__.a:%22(DE-101)' . $gndId . '%22';
         };
         //$instrumentRepo = GeneralUtility::makeInstance(InstrumentRepository::class);
@@ -466,8 +458,8 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             }
         }
 
-        $getId = function($item) {
-            $filterId = function($cell) {
+        $getId = function(array $item): string {
+            $filterId = function(array $cell): bool {
                 if (isset($cell[0])) {
                     if (is_array($cell[0])) {
                         return str_contains($cell[0][0], 'd-nb.info');
@@ -486,7 +478,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         };
 
         $getPv = function($item) {
-            $debug = function() {hallo();};
             $filterP = function($cell) {
                 return array_key_exists('p', $cell);
             };
@@ -679,7 +670,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param string $string
      * @return string
      */
-    private function getDate(string $string)
+    private function getDate(string $string): string
     {
         preg_match('/1[0-9][0-9X][0-9X]/', $string, $result);
         return isset($result[0]) ? $result[0] : '';
@@ -703,7 +694,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return void
      */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->instruments = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->form = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -718,7 +709,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \Slub\DmNorm\Domain\Model\GndInstrument $instrument
      * @return void
      */
-    public function addInstrument(\Slub\DmNorm\Domain\Model\GndInstrument $instrument)
+    public function addInstrument(\Slub\DmNorm\Domain\Model\GndInstrument $instrument): void
     {
         $this->instruments->attach($instrument);
     }
@@ -729,7 +720,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @param \Slub\DmNorm\Domain\Model\GndInstrument $instrumentToRemove The Instrument to be removed
      * @return void
      */
-    public function removeInstrument(\Slub\DmNorm\Domain\Model\GndInstrument $instrumentToRemove)
+    public function removeInstrument(\Slub\DmNorm\Domain\Model\GndInstrument $instrumentToRemove): void
     {
         $this->instruments->detach($instrumentToRemove);
     }
@@ -739,7 +730,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndInstrument> instruments
      */
-    public function getInstruments()
+    public function getInstruments(): ObjectStorage
     {
         return $this->instruments;
     }
@@ -749,7 +740,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \Slub\DmNorm\Domain\Model\GndPerson
      */
-    public function getFirstcomposer()
+    public function getFirstcomposer(): GndPerson
     {
         return $this->firstcomposer;
     }
@@ -759,7 +750,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string gndStatus
      */
-    public function getGndStatus()
+    public function getGndStatus(): string
     {
         return $this->gndStatus;
     }
@@ -769,7 +760,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndGenre> $gndGenre
      */
-    public function getGndGenre()
+    public function getGndGenre(): GndGenre
     {
         return $this->gndGenre;
     }
@@ -779,7 +770,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $tonality
      */
-    public function getTonality()
+    public function getTonality(): string
     {
         return $this->tonality;
     }
@@ -789,7 +780,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $titleNo
      */
-    public function getTitleNo()
+    public function getTitleNo(): string
     {
         return $this->titleNo;
     }
@@ -799,7 +790,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $titleInstrument
      */
-    public function getTitleInstrument()
+    public function getTitleInstrument(): string
     {
         return $this->titleInstrument;
     }
@@ -809,7 +800,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $altTitles
      */
-    public function getAltTitles()
+    public function getAltTitles(): string
     {
         return $this->altTitles;
     }
@@ -819,27 +810,17 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $language
      */
-    public function getLanguage()
+    public function getLanguage(): string
     {
         return $this->language;
     }
 
     /**
-     * Returns all publisherMakroItems which print the Work
-     * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\PublisherMakroItem>
-     */
-    public function getPublisherMakroItems()
-    {
-        return $this->publisherMakroItemRepository->lookupByWork($this);
-    }
-
-    /**
      * Returns all subWorks of the work
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\PublisherMakroItem>
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndWork>
      */
-    public function getSubWorks()
+    public function getSubWorks(): ObjectStorage
     {
         return $this->workRepository->findBySuperWork($this);
     }
@@ -849,7 +830,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string instrumentIds
      */
-    public function getInstrumentIds()
+    public function getInstrumentIds(): string
     {
         return $this->instrumentIds;
     }
@@ -859,7 +840,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string altInstrumentNames
      */
-    public function getAltInstrumentNames()
+    public function getAltInstrumentNames(): string
     {
         return $this->altInstrumentNames;
     }
@@ -869,7 +850,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string genreIds
      */
-    public function getGenreIds()
+    public function getGenreIds(): string
     {
         return $this->genreIds;
     }
