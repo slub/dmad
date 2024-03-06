@@ -2,7 +2,8 @@
 namespace Slub\DmNorm\Domain\Model;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use Slub\DmNorm\Lib\DbArray;
+use Illuminate\Support\Collection;
+use \Slub\DmNorm\Common\GndLib;
 use Slub\DmNorm\Domain\Repository\GndPersonRepository;
 use Slub\DmNorm\Domain\Repository\GndWorkRepository;
 use Slub\DmNorm\Domain\Repository\GndGenreRepository;
@@ -468,7 +469,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 }
                 return false;
             };
-            $url = (new DbArray($item['__']))
+            $url = Collection::wrap($item['__'])
                 ->filter( $filterId )
                 ->toArray();
             if (isset(array_values($url)[0][0])) {
@@ -484,11 +485,11 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             $filterV = function($cell) {
                 return array_key_exists('v', $cell);
             };
-            $p = (new DbArray($item['__']))
+            $p = Collection::wrap($item['__'])
                 ->filter( $filterP )
                 ->toArray();
             $p = isset(array_values($p)[0]['p']) ? array_values($p)[0]['p'] : '';
-            $v = (new DbArray($item['__']))
+            $v = Collection::wrap($item['__'])
                 ->filter( $filterV )
                 ->toArray();
             $v = isset(array_values($v)[0]['v']) ? substr(array_values($v)[0]['v'], 17) : '';
@@ -499,25 +500,22 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         };
 
         if (isset($workArray[380])) {
-            $this->genreIds = (new DbArray())
-                ->set($workArray[380])
+            $this->genreIds = Collection::wrap($workArray[380])
                 ->map($getId)
-                ->nonNull()
-                ->implode('$');
+                ->filter(function($item) { return $item != '';})
+                ->join('$');
         }
         if (isset($workArray[382])) {
-            $this->instrumentIds = (new DbArray())
-                ->set($workArray[382])
+            $this->instrumentIds = Collection::wrap($workArray[382])
                 ->map($getId)
-                ->nonNull()
-                ->implode('$');
-            $this->altInstrumentNames = (new DbArray())
-                ->set($workArray[382])
+                ->filter(function($item) { return $item != '';})
+                ->join('$');
+            $this->altInstrumentNames = Collection::wrap($workArray[382])
                 ->map($getPv)
-                ->nonNull()
-                ->implode('$');
+                ->filter(function($item) { return $item != '';})
+                ->join('$');
         }
-        $workArray = \Slub\DmNorm\Lib\GndLib::flattenDataSet($workArray);
+        $workArray = GndLib::flattenDataSet($workArray);
 
         // process gnd data
         $ids = [];
