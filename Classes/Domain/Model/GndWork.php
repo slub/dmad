@@ -411,7 +411,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         GndPersonRepository $personRepository,
         GndInstrumentRepository $instrumentRepo, 
         GndGenreRepository $formRepo
-    ): void
+    ): bool
     {
         // get repositories and object manager in order
         // to create references
