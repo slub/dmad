@@ -1,6 +1,7 @@
 <?php
 namespace Slub\DmNorm\Domain\Model;
 
+use Slub\DmNorm\Common\GndLib;
 
 /***
  *
@@ -220,7 +221,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             return false;
         }
         $deepArray = json_decode(file_get_contents($url), true);
-        $personArray = \Slub\DmNorm\Common\GndLib::flattenDataSet($deepArray);
+        $personArray = GndLib::flattenDataSet($deepArray);
 
         // purge placeOfActivity as multiple values will be concatenated later
         $this->placeOfActivity = '';

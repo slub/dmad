@@ -4,7 +4,7 @@ namespace Slub\DmNorm\Domain\Model;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Illuminate\Support\Collection;
-use \Slub\DmNorm\Common\GndLib;
+use Slub\DmNorm\Common\GndLib;
 use Slub\DmNorm\Domain\Repository\GndPersonRepository;
 use Slub\DmNorm\Domain\Repository\GndWorkRepository;
 use Slub\DmNorm\Domain\Repository\GndGenreRepository;
