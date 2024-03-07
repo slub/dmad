@@ -220,7 +220,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             return false;
         }
         $deepArray = json_decode(file_get_contents($url), true);
-        $personArray = \Slub\DmNorm\Lib\GndLib::flattenDataSet($deepArray);
+        $personArray = \Slub\DmNorm\Common\GndLib::flattenDataSet($deepArray);
 
         // purge placeOfActivity as multiple values will be concatenated later
         $this->placeOfActivity = '';
