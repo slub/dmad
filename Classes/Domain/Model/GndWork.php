@@ -550,7 +550,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 $repo->update($entityArray[$key]);
             } else {
                 $entityArray[$key] = GeneralUtility::makeInstance($class);
-                $entityArray[$key]->setGndStatus($this->gndStatus);
                 $entityArray[$key]->setGndId($id);
                 $entityArray[$key]->pullGndInfo(
                     $workRepository,
