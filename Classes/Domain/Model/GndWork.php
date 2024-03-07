@@ -31,8 +31,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     const GNDMAP = array('Oberbegriff partitiv' => 'superWork', 'Relation (allgemein)' => 'intertextualEntity', 'Komponist1' => 'firstcomposer');
     const TITLEMAP = array('Adagios' => 'Adagio', 'Andantes' => 'Andante', 'Bagatellen' => 'Bagatelle', 'Capriccios' => 'Capriccio', 'Divertimenti' => 'Divertimento', 'Etüden' => 'Etüde', 'Fantasien' => 'Fantasie', 'Fugen' => 'Fuge', 'Fughetten' => 'Fughetta', 'Giguen' => 'Gigue', 'Gesänge' => 'Gesang', 'Inventionen' => 'Invention', 'Kanzonen' => 'Kanzone', 'Konzerte' => 'Konzert', 'Lieder' => 'Lied', 'Menuette' => 'Menuett', 'Messen' => 'Messe', 'Oktette' => 'Oktett', 'Ouvertüren' => 'Ouvertüre', 'Ouverturen' => 'Ouvertüre', 'Pastoralen' => 'Pastorale', 'Präludien' => 'Präludium', 'Partiten' => 'Partita', 'Romanzen' => 'Romanze', 'Rondos' => 'Rondo', 'Septette' => 'Septett', 'Serenaden' => 'Serenade', 'Sextette' => 'Sextett', 'Sinfonien' => 'Sinfonie', 'Sonaten' => 'Sonate', 'Studien' => 'Studie', 'Stücke' => 'Stück', 'Suiten' => 'Suite', 'Tokkaten' => 'Toccata', 'Trios' => 'Trio', 'Variationen' => 'Variation', 'Quartette' => 'Quartett', 'Quintette' => 'Quintett');
     const LOC = 'Location: ';
-    const DATASERVER = 'https://data.slub-dresden.de/';
-    const DATAPATH = 'source/gnd_marc21/';
 
     /**
      * personRepository
@@ -425,7 +423,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         //$formRepo = GeneralUtility::makeInstance(FormRepository::class);
 
         // download gnd data
-        $url = self::DATASERVER . self::DATAPATH . $this->gndId;
+        $url = GndLib::DATASERVER . GndLib::DATAPATH . $this->gndId;
         $headers = @get_headers($url);
 
         // if not found check for redirects

@@ -17,6 +17,9 @@ namespace Slub\DmNorm\Common;
 
 class GndLib 
 {
+    const DATASERVER = 'https://data.slub-dresden.de/';
+    const DATAPATH = 'source/gnd_marc21/';
+
     public static function flattenDataSet($dataSet) {
         $output = [];
         foreach ($dataSet as $key => $dataField) {
