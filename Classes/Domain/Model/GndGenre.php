@@ -92,6 +92,18 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Sets the gndId
+     * 
+     * @var string $gndId
+     * @return GndGenre
+     */
+    public function setGndId(string $gndId): GndGenre
+    {
+        $this->gndId = $gndId;
+        return $this;
+    }
+ 
+    /**
      * Returns the gndId
      * 
      * @return string $gndId

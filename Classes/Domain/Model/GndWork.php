@@ -2,6 +2,7 @@
 namespace Slub\DmNorm\Domain\Model;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Illuminate\Support\Collection;
 use \Slub\DmNorm\Common\GndLib;
 use Slub\DmNorm\Domain\Repository\GndPersonRepository;
@@ -537,7 +538,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         foreach ($ids as $key => $id) {
             $repo = $key == 'firstcomposer' ? 
                 $personRepository : $workRepository;
-            $class = $key == 'firstcomposer' ? Person::class : GndWork::class;
+            $class = $key == 'firstcomposer' ? GndPerson::class : GndWork::class;
             if ($repo->findOneByGndId($id)) {
                 $entityArray[$key] = $repo->findOneByGndId($id);
                 $entityArray[$key]->pullGndInfo(
@@ -576,7 +577,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                         $id = str_replace('https://d-nb.info/gnd/', '', $cell);
                         $form = $formRepo->findOneByGndId($id);
                         if (!$form) {
-                            $form = GeneralUtility::makeInstance(Form::class);
+                            $form = GeneralUtility::makeInstance(GndGenre::class);
                             $form->setGndId($id);
                             $formRepo->add($form);
                         }
@@ -601,7 +602,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                         $id = str_replace('https://d-nb.info/gnd/', '', $cell);
                         $instrument = $instrumentRepo->findOneByGndId($id);
                         if (!$instrument) {
-                            $instrument = GeneralUtility::makeInstance(Instrument::class);
+                            $instrument = GeneralUtility::makeInstance(GndInstrument::class);
                             $instrument->setGndId($id);
                             $instrumentRepo->add($instrument);
                         }
@@ -660,6 +661,19 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                     $this->altTitles = $this->altTitles ? $this->altTitles . ' $ ' . $title['t'] : $title['t'];
             }
         }
+
+        return true;
+    }
+
+    /**
+     * Sets the instruments
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\PublisherDb\Domain\Model\Instrument> $instruments
+     * @return void
+     */
+    public function setInstruments(ObjectStorage $instruments = null)
+    {
+        $this->instruments = $instruments ? $instruments : GeneralUtility::makeInstance(ObjectStorage::class);
     }
 
     /**
@@ -738,7 +752,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \Slub\DmNorm\Domain\Model\GndPerson
      */
-    public function getFirstcomposer(): GndPerson
+    public function getFirstcomposer(): ?GndPerson
     {
         return $this->firstcomposer;
     }

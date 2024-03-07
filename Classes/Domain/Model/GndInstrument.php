@@ -92,6 +92,18 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Sets the gndId
+     * 
+     * @var string $gndId
+     * @return GndInstrument
+     */
+    public function setGndId(string $gndId): GndInstrument
+    {
+        $this->gndId = $gndId;
+        return $this;
+    }
+
+    /**
      * Returns the gndId
      * 
      * @return string $gndId
