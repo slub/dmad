@@ -1,8 +1,9 @@
 <?php
 namespace Slub\DmNorm\Domain\Model;
 
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
-use \Slub\DmNorm\Domain\Repository\GndGenreRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Slub\DmNorm\Common\GndLib;
+use Slub\DmNorm\Domain\Repository\GndGenreRepository;
 
 /***
  *
@@ -139,7 +140,7 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             return false;
         }
         $formArray = json_decode(file_get_contents($url), true);
-        $formArray = \SLUB\PublisherDb\Lib\GndLib::flattenDataSet($formArray);
+        $formArray = GndLib::flattenDataSet($formArray);
         $this->name = $formArray[150][0]['a'];
 
         // does superForm exist?
