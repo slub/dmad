@@ -119,9 +119,9 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\PublisherDb\Domain\Model\Form> $superForm
      */
-    public function getSuperForm()
+    public function getSuperGndGenre()
     {
-        return $this->superForm;
+        return $this->superGndGenre;
     }
 
     /**
@@ -132,7 +132,7 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function pullGndInfo()
     {
 
-        // get form repository to set superForm
+        // get form repository to set superGndGenre
         $repo = GeneralUtility::makeInstance(GndGenreRepository::class);
         $url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
         $headers = @get_headers($url);
@@ -143,12 +143,12 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $formArray = GndLib::flattenDataSet($formArray);
         $this->name = $formArray[150][0]['a'];
 
-        // does superForm exist?
+        // does superGndGenre exist?
         if (isset($formArray[550])) {
             foreach ($formArray[550] as $field) {
                 if ($field['i'] == 'Oberbegriff allgemein') {
 
-                    // find superForm's gndId
+                    // find superGndGenre's gndId
                     foreach ($field as $cell) {
                         if (strpos($cell, 'd-nb.info/gnd')) {
                             $superId = str_replace('https://d-nb.info/gnd/', '', $cell);
@@ -166,13 +166,13 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                             $superForm->pullGndInfo();
                             $repo->add($superForm);
                         }
-                        $this->superForm->attach($superForm);
+                        $this->superGndGenre->attach($superForm);
                     }
                 }
             }
         }
         $superString = '';
-        foreach ($this->superForm as $singleSuperForm) {
+        foreach ($this->superGndGenre as $singleSuperForm) {
             $superString = $superString . ' ' . $singleSuperForm->displayAs;
         }
         if ($superString) {
