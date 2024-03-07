@@ -20,7 +20,6 @@ return [
         'iconfile' => 'EXT:dmnorm/Resources/Public/Icons/tx_dmnorm_domain_model_gndperson.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, gnd_id, name, date_of_birth, date_of_death, geographic_area_code, gender, works, place_of_birth, place_of_death, place_of_activity',
     ],
     'types' => [
         '1' => ['showitem' => 'gnd_id, name, date_of_birth, date_of_death, geographic_area_code, gender, unmodified_gnd_data, gnd_status, final, works, place_of_birth, place_of_death, place_of_activity, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
@@ -30,7 +29,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
-                'type' => 'select',
+                'type' => 'language',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
                 'items' => [
@@ -41,21 +40,6 @@ return [
                     ]
                 ],
                 'default' => 0,
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'default' => 0,
-                'items' => [
-                    ['', 0],
-                ],
-                'foreign_table' => 'tx_dmnorm_domain_model_gndperson',
-                'foreign_table_where' => 'AND {#tx_dmnorm_domain_model_gndperson}.{#pid}=###CURRENT_PID### AND {#tx_dmnorm_domain_model_gndperson}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
