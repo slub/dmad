@@ -1,6 +1,7 @@
 <?php
 namespace Slub\DmNorm\Domain\Model;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Slub\DmNorm\Common\GndLib;
 
 /***
