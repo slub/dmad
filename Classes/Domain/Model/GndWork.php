@@ -9,9 +9,6 @@ use Slub\DmNorm\Domain\Repository\GndPersonRepository;
 use Slub\DmNorm\Domain\Repository\GndWorkRepository;
 use Slub\DmNorm\Domain\Repository\GndGenreRepository;
 use Slub\DmNorm\Domain\Repository\GndInstrumentRepository;
-use Slub\DmNorm\Domain\Model\GndPerson;
-use Slub\DmNorm\Domain\Model\GndForm;
-use Slub\DmNorm\Domain\Model\GndInstrument;
 
 /***
 *
@@ -97,13 +94,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $geographicAreaCode = '';
 
     /**
-     * geographicalAreaCode
-     * 
-     * @var string
-     */
-    protected $geographicalAreaCode = '';
-
-    /**
      * opusNo
      * 
      * @var string
@@ -116,13 +106,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var string
      */
     protected $indexNo = '';
-
-    /**
-     * mediumOfPerformance
-     * 
-     * @var string
-     */
-    protected $mediumOfPerformance = '';
 
     /**
      * gndStatus
@@ -217,12 +200,12 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $instruments = null;
 
     /**
-     * form
+     * gndGenres
      * 
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndGenre>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
-    protected $gndGenre = null;
+    protected $gndGenres = null;
 
     /**
      * @param \Slub\DmNorm\Domain\Repository\GndWorkRepository $workRepository
@@ -282,6 +265,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     private function setFullTitle(): void
     {
+        $this->title = self::TITLEMAP[$this->genericTitle] ?? $this->genericTitle;
         if (isset(self::TITLEMAP[$this->title])) {
             $this->fullTitle = self::TITLEMAP[$this->title];
         } else {
@@ -352,16 +336,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the geographicalAreaCode
-     * 
-     * @return string $geographicalAreaCode
-     */
-    public function getGeographicalAreaCode(): string
-    {
-        return $this->geographicalAreaCode;
-    }
-
-    /**
      * Returns the superWork
      * 
      * @return \Slub\DmNorm\Domain\Model\GndWork $superWork
@@ -413,14 +387,9 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         GndGenreRepository $formRepo
     ): bool
     {
-        // get repositories and object manager in order
-        // to create references
-        // throw away after getting rid of instrument / form
         $getQuery = function(string $gndId): string {
             return 'http://sdvlodpro:9200/gnd_marc21/_search?q=035.__.a:%22(DE-101)' . $gndId . '%22';
         };
-        //$instrumentRepo = GeneralUtility::makeInstance(InstrumentRepository::class);
-        //$formRepo = GeneralUtility::makeInstance(FormRepository::class);
 
         // download gnd data
         $url = GndLib::DATASERVER . GndLib::DATAPATH . $this->gndId;
@@ -612,12 +581,12 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         }
 
         $this->individualTitle = isset($workArray[100][0]['p']) ? $workArray[100][0]['p'] : '';
-        $this->title = isset($workArray[100][0]['t']) ? $workArray[100][0]['t'] : '';
-        if ($this->title == '' && isset($workArray[130])) {
-            $this->title = isset($workArray[130][0]['a']) ? $workArray[130][0]['a'] : '';
+        $this->genericTitle = isset($workArray[100][0]['t']) ? $workArray[100][0]['t'] : '';
+        if ($this->genericTitle == '' && isset($workArray[130])) {
+            $this->genericTitle = isset($workArray[130][0]['a']) ? $workArray[130][0]['a'] : '';
         }
-        $this->title = str_replace("", "", $this->title);
-        $this->title = str_replace("", "", $this->title);
+        $this->genericTitle = str_replace("", "", $this->genericTitle);
+        $this->genericTitle = str_replace("", "", $this->genericTitle);
         if (isset($workArray['383'])) {
             foreach ($workArray['383'] as $titleInfo) {
                 if (isset($titleInfo['a'])) {
@@ -642,13 +611,13 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             $this->tonality = $workArray['384'][0]['a'] ? $workArray['384'][0]['a'] : '';
         }
         if ($this->tonality != '') {
-            $titleArray = explode(' ', $this->title);
+            $titleArray = explode(' ', $this->genericTitle);
             foreach ($titleArray as $key => $word) {
                 if (array_key_exists($word, self::TITLEMAP)) {
                     $titleArray[$key] = self::TITLEMAP[$word];
                 }
             }
-            $this->title = implode(' ', $titleArray);
+            $this->genericTitle = implode(' ', $titleArray);
         }
 
         $this->altTitles = '';
@@ -706,7 +675,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected function initStorageObjects(): void
     {
         $this->instruments = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->form = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->altInstrumentation = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->gndGenres = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->publisherMakroItems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -769,9 +737,10 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndGenre> $gndGenre
      */
-    public function getGndGenre(): GndGenre
+    public function getGndGenres(): ObjectStorage
     {
-        return $this->gndGenre;
+        debug($this);die;
+        return $this->gndGenres;
     }
 
     /**

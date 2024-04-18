@@ -9,10 +9,8 @@ CREATE TABLE tx_dmnorm_domain_model_gndwork (
 	individual_title varchar(255) DEFAULT '' NOT NULL,
 	date_of_production date DEFAULT NULL,
 	geographic_area_code varchar(255) DEFAULT '' NOT NULL,
-	geographical_area_code varchar(255) DEFAULT '' NOT NULL,
 	opus_no varchar(255) DEFAULT '' NOT NULL,
 	index_no varchar(255) DEFAULT '' NOT NULL,
-	medium_of_performance varchar(255) DEFAULT '' NOT NULL,
 	tonality varchar(255) DEFAULT '' NOT NULL,
 	title_no varchar(255) DEFAULT '' NOT NULL,
 	title_instrument varchar(255) DEFAULT '' NOT NULL,
@@ -115,7 +113,7 @@ CREATE TABLE tx_dmnorm_gndwork_gndgenre_mm (
 );
 
 #
-# Table structure for table 'tx_dmnorm_person_placeofactivity_place_mm'
+# Table structure for table 'tx_dmnorm_person_placeofactivity_gndplace_mm'
 #
 CREATE TABLE tx_dmnorm_gndperson_placeofactivity_place_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,

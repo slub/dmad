@@ -165,7 +165,7 @@ return [
             'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.works',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_dmnorm_domain_model_work',
+                'foreign_table' => 'tx_dmnorm_domain_model_gndwork',
                 'foreign_field' => 'firstcomposer',
                 'maxitems' => 9999,
                 'appearance' => [

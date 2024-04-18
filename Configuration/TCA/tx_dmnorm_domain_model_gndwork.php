@@ -341,7 +341,7 @@ return [
             ],
             
         ],
-        'form' => [
+        'gnd_genres' => [
             'exclude' => true,
             'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.form',
             'config' => [
@@ -365,33 +365,6 @@ return [
                     ],
                 ],
             ],
-            
-        ],
-        'main_instrumentation' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.main_instrumentation',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectMultipleSideBySide',
-                'foreign_table' => 'tx_dmnorm_domain_model_mvdbinstrumentation',
-                'default' => 0,
-                'size' => 10,
-                'autoSizeMax' => 30,
-                'maxitems' => 1,
-                'multiple' => 0,
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => true,
-                    ],
-                ],
-            ],
-
         ],
         'firstcomposer' => [
             'exclude' => true,
