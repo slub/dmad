@@ -24,9 +24,8 @@ CREATE TABLE tx_dmnorm_domain_model_gndwork (
 	intertextual_entity int(11) unsigned DEFAULT '0',
 	super_work int(11) unsigned DEFAULT '0',
 	instruments int(11) unsigned DEFAULT '0' NOT NULL,
-	genre int(11) unsigned DEFAULT '0' NOT NULL,
-	main_instrumentation int(11) unsigned DEFAULT '0',
-	alt_instrumentation text NOT NULL
+	gnd_genres int(11) unsigned DEFAULT '0' NOT NULL,
+	main_instrumentation int(11) unsigned DEFAULT '0'
 
 );
 
@@ -67,7 +66,7 @@ CREATE TABLE tx_dmnorm_domain_model_gndgenre (
 	name varchar(255) DEFAULT '' NOT NULL,
 	display_as text,
 	gnd_id varchar(255) DEFAULT '' NOT NULL,
-	super_form int(11) unsigned DEFAULT '0' NOT NULL
+	super_genre int(11) unsigned DEFAULT '0' NOT NULL
 
 );
 
