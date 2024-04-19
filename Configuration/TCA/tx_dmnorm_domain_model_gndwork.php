@@ -16,13 +16,13 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'gnd_id,generic_title,individual_title,geographic_area_code,geographical_area_code,opus_no,index_no,medium_of_performance,gnd_status,tonality,title_no,title_instrument,alt_titles,language,instrument_ids,alt_instrument_names,genre_ids,title',
+        'searchFields' => 'gnd_id,generic_title,individual_title,geographic_area_code,opus_no,index_no,gnd_status,tonality,title_no,title_instrument,alt_titles,language,instrument_ids,alt_instrument_names,genre_ids,title',
         'iconfile' => 'EXT:dmnorm/Resources/Public/Icons/tx_dmnorm_domain_model_gndwork.gif'
     ],
     'interface' => [
     ],
     'types' => [
-        '1' => ['showitem' => 'gnd_id, generic_title, individual_title, date_of_production, geographic_area_code, geographical_area_code, opus_no, index_no, medium_of_performance, unmodified_gnd_data, gnd_status, tonality, title_no, title_instrument, alt_titles, language, final, instrument_ids, alt_instrument_names, confirmed_by_slub, genre_ids, title, intertextual_entity, super_work, instruments, form, main_instrumentation, alt_instrumentation, genre, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'gnd_id, generic_title, individual_title, date_of_production, geographic_area_code, geographical_area_code, opus_no, index_no, medium_of_performance, unmodified_gnd_data, gnd_status, tonality, title_no, title_instrument, alt_titles, language, final, instrument_ids, alt_instrument_names, confirmed_by_slub, genre_ids, title, intertextual_entity, super_work, instruments, gnd_genres, main_instrumentation, genre, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [

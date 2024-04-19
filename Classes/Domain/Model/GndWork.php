@@ -462,7 +462,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 ->toArray();
             $v = isset(array_values($v)[0]['v']) ? substr(array_values($v)[0]['v'], 17) : '';
             if ($p && $v)
-                //$debug($p, $v);
                 return $v . '>' . $p;
             return '';
         };
@@ -634,12 +633,23 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the instruments
      * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\PublisherDb\Domain\Model\Instrument> $instruments
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndInstrument> $instruments
      * @return void
      */
     public function setInstruments(ObjectStorage $instruments = null)
     {
         $this->instruments = $instruments ? $instruments : GeneralUtility::makeInstance(ObjectStorage::class);
+    }
+
+    /**
+     * Sets the gndGenres
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndGenre> $gndGenres
+     * @return void
+     */
+    public function setGndGenres(ObjectStorage $gndGenres = null)
+    {
+        $this->gndGenres = $gndGenres ? $gndGenres : GeneralUtility::makeInstance(ObjectStorage::class);
     }
 
     /**
@@ -675,7 +685,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected function initStorageObjects(): void
     {
         $this->instruments = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->altInstrumentation = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->gndGenres = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->publisherMakroItems = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
@@ -739,7 +748,6 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getGndGenres(): ObjectStorage
     {
-        debug($this);die;
         return $this->gndGenres;
     }
 
