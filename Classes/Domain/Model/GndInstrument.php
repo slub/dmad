@@ -1,8 +1,9 @@
 <?php
 namespace Slub\DmNorm\Domain\Model;
 
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
-use \Slub\DmNorm\Domain\Repository\GndInstrumentRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use Slub\DmNorm\Common\GndLib;
+use Slub\DmNorm\Domain\Repository\GndInstrumentRepository;
 
 /***
  *
@@ -92,6 +93,18 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Sets the gndId
+     * 
+     * @var string $gndId
+     * @return GndInstrument
+     */
+    public function setGndId(string $gndId): GndInstrument
+    {
+        $this->gndId = $gndId;
+        return $this;
+    }
+
+    /**
      * Returns the gndId
      * 
      * @return string $gndId
@@ -109,7 +122,7 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function pullGndInfo()
     {
 
-        // get instrument repository to set superInstrument
+        // get instrument repository to set superGndInstrument
         $repo = GeneralUtility::makeInstance(GndInstrumentRepository::class);
         $url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
         $headers = @get_headers($url);
@@ -117,16 +130,16 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             return false;
         }
         $instrumentArray = json_decode(file_get_contents($url), true);
-        $instrumentArray = \SLUB\DmNorm\Lib\GndLib::flattenDataSet($instrumentArray);
+        $instrumentArray = GndLib::flattenDataSet($instrumentArray);
         $this->name = $instrumentArray[150][0]['a'];
 
-        // does superInstrument exist?
+        // does superGndInstrument exist?
         $superId = false;
         if (isset($formArray[550])) {
             foreach ($instrumentArray[550] as $field) {
                 if ($field['i'] == 'Oberbegriff allgemein') {
 
-                    // find superInstrument's gndId
+                    // find superGndInstrument's gndId
                     foreach ($field as $cell) {
                         if (strpos($cell, 'd-nb.info/gnd')) {
                             $superId = str_replace('https://d-nb.info/gnd/', '', $cell);
@@ -137,26 +150,26 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         }
         if ($superId) {
             if ($repo->findOneByGndId($superId)) {
-                $this->superInstrument = $repo->findOneByGndId($superId);
-                $this->superInstrument->pullGndInfo();
-                $repo->update($this->superInstrument);
+                $this->superGndInstrument = $repo->findOneByGndId($superId);
+                $this->superGndInstrument->pullGndInfo();
+                $repo->update($this->superGndInstrument);
             } else {
-                $this->superInstrument = GeneralUtility::makeInstance(self::class);
-                $this->superInstrument->gndId = $superId;
-                $this->superInstrument->pullGndInfo();
-                $repo->add($this->superInstrument);
+                $this->superGndInstrument = GeneralUtility::makeInstance(self::class);
+                $this->superGndInstrument->gndId = $superId;
+                $this->superGndInstrument->pullGndInfo();
+                $repo->add($this->superGndInstrument);
             }
         }
         //$this->displayAs = $this->superInstrument == null ? $this->name : $this->name . ' (' . $this->superInstrument->displayAs . ')';
     }
 
     /**
-     * Returns the superInstrument
+     * Returns the superGndInstrument
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\DmNorm\Domain\Model\Instrument> $superInstrument
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\DmNorm\Domain\Model\GndInstrument> $superGndInstrument
      */
-    public function getSuperInstrument()
+    public function getSuperGndInstrument()
     {
-        return $this->superInstrument;
+        return $this->superGndInstrument;
     }
 }
