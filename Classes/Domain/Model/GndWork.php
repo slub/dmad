@@ -243,7 +243,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \Slub\DmNorm\Domain\Model\GndWork $intertextualEntity
      */
-    public function getIntertextualEntity(): GndWork
+    public function getIntertextualEntity(): ?GndWork
     {
         return $this->intertextualEntity;
     }
@@ -320,7 +320,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \DateTime $dateOfProduction
      */
-    public function getDateOfProduction(): \DateTime
+    public function getDateOfProduction(): ?\DateTime
     {
         return $this->dateOfProduction;
     }
@@ -340,7 +340,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \Slub\DmNorm\Domain\Model\GndWork $superWork
      */
-    public function getSuperWork(): GndWork
+    public function getSuperWork(): ?GndWork
     {
         return $this->superWork;
     }

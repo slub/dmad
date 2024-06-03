@@ -1,6 +1,7 @@
 <?php
 namespace Slub\DmNorm\Domain\Model;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Slub\DmNorm\Common\GndLib;
 
 /***
@@ -141,7 +142,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \DateTime $dateOfBirth
      */
-    public function getDateOfBirth(): \DateTime
+    public function getDateOfBirth(): ?\DateTime
     {
         return $this->dateOfBirth;
     }
@@ -151,7 +152,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \DateTime $dateOfDeath
      */
-    public function getDateOfDeath(): \DateTime
+    public function getDateOfDeath(): ?\DateTime
     {
         return $this->dateOfDeath;
     }

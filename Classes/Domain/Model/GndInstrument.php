@@ -77,7 +77,7 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -87,7 +87,7 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $displayAs
      */
-    public function getDisplayAs()
+    public function getDisplayAs(): string
     {
         return $this->displayAs;
     }
@@ -109,7 +109,7 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $gndId
      */
-    public function getGndId()
+    public function getGndId(): string
     {
         return $this->gndId;
     }
@@ -168,7 +168,7 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\DmNorm\Domain\Model\GndInstrument> $superGndInstrument
      */
-    public function getSuperGndInstrument()
+    public function getSuperGndInstrument(): ?GndInstrument
     {
         return $this->superGndInstrument;
     }
