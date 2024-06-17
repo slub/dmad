@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+		<header/>
+		<body>
+            <trans-unit id="genericTitle">
+                <source>generic title</source>
+            </trans-unit>
+            <trans-unit id="altTitles">
+                <source>alternative titles</source>
+            </trans-unit>
+            <trans-unit id="titleNo">
+                <source>numbering</source>
+            </trans-unit>
+            <trans-unit id="titleInstrument">
+                <source>title instrument</source>
+            </trans-unit>
+            <trans-unit id="tonality">
+                <source>tonality</source>
+            </trans-unit>
+            <trans-unit id="firstComposer">
+                <source>composer</source>
+            </trans-unit>
+            <trans-unit id="dateOfProduction">
+                <source>year of production</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -263,7 +263,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return void
      */
-    private function setFullTitle(): void
+    public function setFullTitle(): void
     {
         $this->title = self::TITLEMAP[$this->genericTitle] ?? $this->genericTitle;
         if (isset(self::TITLEMAP[$this->title])) {
@@ -547,7 +547,7 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                             $formRepo->add($form);
                         }
                         $form->pullGndInfo();
-                        $this->form->attach($form);
+                        $this->gndGenres->attach($form);
                         break;
                     }
                 }

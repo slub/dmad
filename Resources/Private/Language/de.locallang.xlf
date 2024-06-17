@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+		<header/>
+		<body>
+            <trans-unit id="work">
+                <source>work</source>
+                <target>Werk</target>
+            </trans-unit>
+            <trans-unit id="person">
+                <source>person</source>
+                <target>Person</target>
+            </trans-unit>
+            <trans-unit id="genre">
+                <source>genre</source>
+                <target>Gattung</target>
+            </trans-unit>
+            <trans-unit id="instrument">
+                <source>instrument</source>
+                <target>Instrument</target>
+            </trans-unit>
+            <trans-unit id="mediumOfPerformance">
+                <source>medium of performance</source>
+                <target>Instrumentierung</target>
+            </trans-unit>
+            <trans-unit id="geographic_area_code">
+                <source>geographic code</source>
+                <target>geografischer Code</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>
