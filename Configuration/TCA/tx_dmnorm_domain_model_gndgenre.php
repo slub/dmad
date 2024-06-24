@@ -22,7 +22,7 @@ return [
     'interface' => [
     ],
     'types' => [
-        '1' => ['showitem' => 'name, display_as, gnd_id, super_genre, --div--;LLL:EXT:core/Resources/Private/Language/GndGenre/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/GndGenre/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'name, display_as, gnd_id, super_gnd_genre, --div--;LLL:EXT:core/Resources/Private/Language/GndGenre/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/GndGenre/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -128,9 +128,9 @@ return [
                 'eval' => 'trim'
             ],
         ],
-        'super_genre' => [
+        'super_gnd_genre' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre.super_genre',
+            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre.super_gnd_genre',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
