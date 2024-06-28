@@ -66,7 +66,7 @@ CREATE TABLE tx_dmnorm_domain_model_gndgenre (
 	name varchar(255) DEFAULT '' NOT NULL,
 	display_as text,
 	gnd_id varchar(255) DEFAULT '' NOT NULL,
-	super_genre int(11) unsigned DEFAULT '0' NOT NULL
+	super_gnd_genre int(11) unsigned DEFAULT '0' NOT NULL
 
 );
 

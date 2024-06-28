@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang_csh" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+		<header/>
+		<body>
+			<trans-unit id="gnd_id.description" resname="gnd_id.description">
+				<source>gndId</source>
+			</trans-unit>
+			<trans-unit id="generic_title.description" resname="generic_title.description">
+				<source>genericTitle</source>
+			</trans-unit>
+			<trans-unit id="date_of_production.description" resname="date_of_production.description">
+				<source>dateOfProduction</source>
+			</trans-unit>
+			<trans-unit id="geographic_area_code.description" resname="geographic_area_code.description">
+				<source>geographicAreaCode</source>
+			</trans-unit>
+			<trans-unit id="geographical_area_code.description" resname="geographical_area_code.description">
+				<source>geographicalAreaCode</source>
+			</trans-unit>
+			<trans-unit id="opus_no.description" resname="opus_no.description">
+				<source>opusNo</source>
+			</trans-unit>
+			<trans-unit id="index_no.description" resname="index_no.description">
+				<source>indexNo</source>
+			</trans-unit>
+			<trans-unit id="medium_of_performance.description" resname="medium_of_performance.description">
+				<source>mediumOfPerformance</source>
+			</trans-unit>
+			<trans-unit id="unmodified_gnd_data.description" resname="unmodified_gnd_data.description">
+				<source>unmodifiedGndData</source>
+			</trans-unit>
+			<trans-unit id="gnd_status.description" resname="gnd_status.description">
+				<source>gndStatus</source>
+			</trans-unit>
+			<trans-unit id="tonality.description" resname="tonality.description">
+				<source>tonality</source>
+			</trans-unit>
+			<trans-unit id="title_no.description" resname="title_no.description">
+				<source>titleNo</source>
+			</trans-unit>
+			<trans-unit id="title_instrument.description" resname="title_instrument.description">
+				<source>titleInstrument</source>
+			</trans-unit>
+			<trans-unit id="alt_titles.description" resname="alt_titles.description">
+				<source>altTitles</source>
+			</trans-unit>
+			<trans-unit id="language.description" resname="language.description">
+				<source>language</source>
+			</trans-unit>
+			<trans-unit id="final.description" resname="final.description">
+				<source>final</source>
+			</trans-unit>
+			<trans-unit id="instrument_ids.description" resname="instrument_ids.description">
+				<source>instrumentIds</source>
+			</trans-unit>
+			<trans-unit id="alt_instrument_names.description" resname="alt_instrument_names.description">
+				<source>altInstrumentNames</source>
+			</trans-unit>
+			<trans-unit id="confirmed_by_slub.description" resname="confirmed_by_slub.description">
+				<source>confirmedBySlub</source>
+			</trans-unit>
+			<trans-unit id="genre_ids.description" resname="genre_ids.description">
+				<source>genreIds</source>
+			</trans-unit>
+			<trans-unit id="title.description" resname="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="intertextual_entity.description" resname="intertextual_entity.description">
+				<source>intertextualEntity</source>
+			</trans-unit>
+			<trans-unit id="super_work.description" resname="super_work.description">
+				<source>superWork</source>
+			</trans-unit>
+			<trans-unit id="instruments.description" resname="instruments.description">
+				<source>instruments</source>
+			</trans-unit>
+			<trans-unit id="form.description" resname="form.description">
+				<source>form</source>
+			</trans-unit>
+			<trans-unit id="main_instrumentation.description" resname="main_instrumentation.description">
+				<source>mainInstrumentation</source>
+			</trans-unit>
+			<trans-unit id="alt_instrumentation.description" resname="alt_instrumentation.description">
+				<source>altInstrumentation</source>
+			</trans-unit>
+			<trans-unit id="genre.description" resname="genre.description">
+				<source>genre</source>
+			</trans-unit>
+			<trans-unit id="first_composer.description" resname="first_composer.description">
+				<source>firstComposer</source>
+			</trans-unit>
+			<trans-unit id="genres.description" resname="genres.description">
+				<source>genres</source>
+			</trans-unit>
+			<trans-unit id="alt_instrument_ids.description" resname="alt_instrument_ids.description">
+				<source>altInstrumentIds</source>
+			</trans-unit>
+			<trans-unit id="alternative_instrumentation.description" resname="alternative_instrumentation.description">
+				<source>alternativeInstrumentation</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

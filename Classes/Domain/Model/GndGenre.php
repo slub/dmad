@@ -45,7 +45,7 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * superGndGenre
      * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\PublisherDb\Domain\Model\GndGenre>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\GndGenre>
      */
     protected $superGndGenre = null;
 
@@ -117,7 +117,7 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the superForm
      * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\SLUB\PublisherDb\Domain\Model\Form> $superForm
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\Form> $superForm
      */
     public function getSuperGndGenre()
     {
@@ -134,7 +134,8 @@ class GndGenre extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         // get form repository to set superGndGenre
         $repo = GeneralUtility::makeInstance(GndGenreRepository::class);
-        $url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
+        //$url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
+        $url = GndLib::DATASERVER . GndLib::DATAPATH . $this->gndId;
         $headers = @get_headers($url);
         if (!$headers || $headers[0] == 'HTTP/1.0 404 Not Found' || $headers[0] == 'HTTP/1.1 404 Not Found') {
             return false;

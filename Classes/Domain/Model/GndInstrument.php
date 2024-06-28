@@ -124,7 +124,8 @@ class GndInstrument extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         // get instrument repository to set superGndInstrument
         $repo = GeneralUtility::makeInstance(GndInstrumentRepository::class);
-        $url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
+        //$url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
+        $url = GndLib::DATASERVER . GndLib::DATAPATH . $this->gndId;
         $headers = @get_headers($url);
         if (!$headers || $headers[0] == 'HTTP/1.0 404 Not Found' || $headers[0] == 'HTTP/1.1 404 Not Found') {
             return false;

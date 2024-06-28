@@ -21,6 +21,18 @@
             <trans-unit id="geographic_area_code">
                 <source>geographic code</source>
             </trans-unit>
-		</body>
-	</file>
+            <trans-unit id="name" resname="name">
+                <source>name</source>
+            </trans-unit>
+            <trans-unit id="display_as" resname="display_as">
+                <source>display as</source>
+            </trans-unit>
+            <trans-unit id="gnd_id" resname="gnd_id">
+                <source>GND ID</source>
+            </trans-unit>
+            <trans-unit id="super_form" resname="super_gnd_genre">
+                <source>broader term</source>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>
