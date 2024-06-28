@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre',
+        'title' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:genre',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'name,display_as,gnd_id',
-        'iconfile' => 'EXT:dmnorm/Resources/Public/Icons/tx_dmnorm_domain_model_gndgenre.gif'
+        'iconfile' => 'EXT:dm_norm/Resources/Public/Icons/tx_dmnorm_domain_model_gndgenre.gif'
     ],
     'interface' => [
     ],
@@ -102,7 +102,7 @@ return [
 
         'name' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre.name',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang.xlf:name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -111,7 +111,7 @@ return [
         ],
         'display_as' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre.display_as',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang.xlf:display_as',
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
@@ -121,7 +121,7 @@ return [
         ],
         'gnd_id' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre.gnd_id',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang.xlf:gnd_id',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -130,7 +130,7 @@ return [
         ],
         'super_gnd_genre' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndgenre.super_gnd_genre',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang.xlf:super_gnd_genre',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -152,8 +152,6 @@ return [
                     ],
                 ],
             ],
-            
         ],
-    
     ],
 ];

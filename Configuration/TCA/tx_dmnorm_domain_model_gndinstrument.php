@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument',
+        'title' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument',
         'label' => 'name',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'name,display_as,gnd_id',
-        'iconfile' => 'EXT:dmnorm/Resources/Public/Icons/tx_dmnorm_domain_model_gndinstrument.gif'
+        'iconfile' => 'EXT:dm_norm/Resources/Public/Icons/tx_dmnorm_domain_model_gndinstrument.gif'
     ],
     'interface' => [
     ],
@@ -102,7 +102,7 @@ return [
 
         'name' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.name',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -111,7 +111,7 @@ return [
         ],
         'display_as' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.display_as',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.display_as',
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
@@ -121,7 +121,7 @@ return [
         ],
         'gnd_id' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.gnd_id',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.gnd_id',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -130,7 +130,7 @@ return [
         ],
         'super_instrument' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.super_instrument',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndinstrument.super_instrument',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',

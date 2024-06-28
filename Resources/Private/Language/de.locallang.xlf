@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+	<file source-language="en" datatype="plaintext" original="EXT:dmnorm/Resources/Private/Language/locallang" date="2022-12-19T13:20:31Z" product-name="dmnorm">
 		<header/>
 		<body>
             <trans-unit id="work">

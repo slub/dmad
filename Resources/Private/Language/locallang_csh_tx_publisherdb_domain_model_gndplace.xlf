@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang_csh" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="alt_names.description" resname="alt_names.description">
+				<source>altNames</source>
+			</trans-unit>
+			<trans-unit id="longitude.description" resname="longitude.description">
+				<source>longitude</source>
+			</trans-unit>
+			<trans-unit id="latitude.description" resname="latitude.description">
+				<source>latitude</source>
+			</trans-unit>
+			<trans-unit id="gnd_id.description" resname="gnd_id.description">
+				<source>gndId</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

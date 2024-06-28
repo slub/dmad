@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:dmnorm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndgenre" date="2022-12-19T13:20:31Z" product-name="dmnorm">
+		<header/>
+		<body>
+			<trans-unit id="name" resname="name">
+				<source>name</source>
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="display_as" resname="display_as">
+				<source>display as</source>
+				<target>Anzeige</target>
+			</trans-unit>
+			<trans-unit id="gnd_id" resname="gnd_id">
+				<source>GND ID</source>
+				<target>GND-ID</target>
+			</trans-unit>
+			<trans-unit id="super_form" resname="super_gnd_genre">
+				<source>broader term</source>
+				<target>Überbegriff</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

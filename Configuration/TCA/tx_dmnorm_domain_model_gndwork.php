@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork',
+        'title' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork',
         'label' => 'gnd_id',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'gnd_id,generic_title,individual_title,geographic_area_code,opus_no,index_no,gnd_status,tonality,title_no,title_instrument,alt_titles,language,instrument_ids,alt_instrument_names,genre_ids,title',
-        'iconfile' => 'EXT:dmnorm/Resources/Public/Icons/tx_dmnorm_domain_model_gndwork.gif'
+        'iconfile' => 'EXT:dm_norm/Resources/Public/Icons/tx_dmnorm_domain_model_gndwork.gif'
     ],
     'interface' => [
     ],
@@ -102,7 +102,7 @@ return [
 
         'gnd_id' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.gnd_id',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang.xlf:gnd_id',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -111,7 +111,7 @@ return [
         ],
         'individual_title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.individual_title',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:individualTitle',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -120,7 +120,7 @@ return [
         ],
         'generic_title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.generic_title',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:genericTitle',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -129,7 +129,7 @@ return [
         ],
         'date_of_production' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.date_of_production',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:dateOfProduction',
             'config' => [
                 'dbType' => 'date',
                 'type' => 'input',
@@ -141,16 +141,7 @@ return [
         ],
         'geographic_area_code' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.geographic_area_code',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ],
-        ],
-        'geographical_area_code' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.geographical_area_code',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:geographicAreaCode',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -159,7 +150,7 @@ return [
         ],
         'opus_no' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.opus_no',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:opusNo',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -168,7 +159,7 @@ return [
         ],
         'index_no' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.index_no',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:indexNo',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -177,7 +168,7 @@ return [
         ],
         'medium_of_performance' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.medium_of_performance',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:mediumOfPerformance',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -186,7 +177,7 @@ return [
         ],
         'publishers' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.publishers',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:publishers',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -195,7 +186,7 @@ return [
         ],
         'tonality' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.tonality',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:tonality',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -204,7 +195,7 @@ return [
         ],
         'title_no' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.title_no',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:titleNo',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -213,7 +204,7 @@ return [
         ],
         'title_instrument' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.title_instrument',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:titleInstrument',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -222,7 +213,7 @@ return [
         ],
         'alt_titles' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.alt_titles',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:altTitles',
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
@@ -232,7 +223,7 @@ return [
         ],
         'language' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.language',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:language',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -241,7 +232,7 @@ return [
         ],
         'instrument_ids' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.instrument_ids',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:instrumentIds',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -250,7 +241,7 @@ return [
         ],
         'alt_instrument_names' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.alt_instrument_names',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:altInstrumentNames',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -259,7 +250,7 @@ return [
         ],
         'genre_ids' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.genre_ids',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:genreIds',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -268,7 +259,7 @@ return [
         ],
         'full_title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.full_title',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:fullTitle',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -277,7 +268,7 @@ return [
         ],
         'title' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.title',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:title',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -286,7 +277,7 @@ return [
         ],
         'intertextual_entity' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.intertextual_entity',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:intertextualEntity',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_dmnorm_domain_model_gndwork',
@@ -304,7 +295,7 @@ return [
         ],
         'super_work' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.super_work',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:superWork',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -317,7 +308,7 @@ return [
         ],
         'instruments' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.instruments',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:instruments',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -343,7 +334,7 @@ return [
         ],
         'gnd_genres' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.form',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:form',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
@@ -368,7 +359,7 @@ return [
         ],
         'firstcomposer' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndwork.first_composer',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_work.xlf:firstComposer',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
