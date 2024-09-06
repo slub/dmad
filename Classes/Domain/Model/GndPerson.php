@@ -138,6 +138,17 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Sets the name
+     *
+     * @retun string $nae
+     */
+    public function setName(string $name): GndPerson
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
      * Returns the dateOfBirth
      * 
      * @return \DateTime $dateOfBirth
