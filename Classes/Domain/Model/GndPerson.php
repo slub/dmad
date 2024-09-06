@@ -140,7 +140,8 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the name
      *
-     * @retun string $nae
+     * @param string $name
+     * @return \Slub\DmNorm\Domain\Model\GndPerson
      */
     public function setName(string $name): GndPerson
     {

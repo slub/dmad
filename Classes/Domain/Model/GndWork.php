@@ -732,6 +732,18 @@ class GndWork extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Sets the firstcomposer
+     *
+     * @param \Slub\DmNorm\Domain\Model\GndPerson $firstComposer
+     * @return \Slub\DmNorm\Domain\Model\GndWork
+     */
+    public function setFirstcomposer(GndPerson $firstcomposer): GndWork
+    {
+        $this->firstcomposer = $firstcomposer;
+        return $this;
+    }
+
+    /**
      * Returns the gndStatus
      * 
      * @return string gndStatus
