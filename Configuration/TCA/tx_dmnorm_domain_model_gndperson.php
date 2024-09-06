@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson',
+        'title' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson',
         'label' => 'gnd_id',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -17,10 +17,9 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'gnd_id,name,geographic_area_code,gender,gnd_status',
-        'iconfile' => 'EXT:dmnorm/Resources/Public/Icons/tx_dmnorm_domain_model_gndperson.gif'
+        'iconfile' => 'EXT:dm_norm/Resources/Public/Icons/tx_dmnorm_domain_model_gndperson.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, gnd_id, name, date_of_birth, date_of_death, geographic_area_code, gender, works, place_of_birth, place_of_death, place_of_activity',
     ],
     'types' => [
         '1' => ['showitem' => 'gnd_id, name, date_of_birth, date_of_death, geographic_area_code, gender, unmodified_gnd_data, gnd_status, final, works, place_of_birth, place_of_death, place_of_activity, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
@@ -30,7 +29,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
-                'type' => 'select',
+                'type' => 'language',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
                 'items' => [
@@ -41,21 +40,6 @@ return [
                     ]
                 ],
                 'default' => 0,
-            ],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'default' => 0,
-                'items' => [
-                    ['', 0],
-                ],
-                'foreign_table' => 'tx_dmnorm_domain_model_gndperson',
-                'foreign_table_where' => 'AND {#tx_dmnorm_domain_model_gndperson}.{#pid}=###CURRENT_PID### AND {#tx_dmnorm_domain_model_gndperson}.{#sys_language_uid} IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -118,7 +102,7 @@ return [
 
         'gnd_id' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.gnd_id',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:gnd_id',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -127,7 +111,7 @@ return [
         ],
         'name' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.name',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_db.xlf:name',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -136,7 +120,7 @@ return [
         ],
         'date_of_birth' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.date_of_birth',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:date_of_birth',
             'config' => [
                 'dbType' => 'date',
                 'type' => 'input',
@@ -148,7 +132,7 @@ return [
         ],
         'date_of_death' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.date_of_death',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:date_of_death',
             'config' => [
                 'dbType' => 'date',
                 'type' => 'input',
@@ -160,7 +144,7 @@ return [
         ],
         'geographic_area_code' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.geographic_area_code',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:geographic_area_code',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -169,7 +153,7 @@ return [
         ],
         'gender' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.gender',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:gender',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -178,10 +162,10 @@ return [
         ],
         'works' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.works',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:works',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_dmnorm_domain_model_work',
+                'foreign_table' => 'tx_dmnorm_domain_model_gndwork',
                 'foreign_field' => 'firstcomposer',
                 'maxitems' => 9999,
                 'appearance' => [
@@ -196,7 +180,7 @@ return [
         ],
         'place_of_birth' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.place_of_birth',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:place_of_birth',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -209,7 +193,7 @@ return [
         ],
         'place_of_death' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.place_of_death',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:place_of_death',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -222,7 +206,7 @@ return [
         ],
         'place_of_activity' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:dmnorm/Resources/Private/Language/locallang_db.xlf:tx_dmnorm_domain_model_gndperson.place_of_activity',
+            'label' => 'LLL:EXT:dm_norm/Resources/Private/Language/locallang_csh_tx_publisherdb_domain_model_gndperson.xlf:place_of_activity',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',

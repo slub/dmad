@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+		<header/>
+		<body>
+            <trans-unit id="mpdbcore.person.placeOfBirth">
+                <source>place of birth</source>
+            </trans-unit>
+            <trans-unit id="mpdbcore.person.placeOfDeath">
+                <source>place of death</source>
+            </trans-unit>
+            <trans-unit id="mpdbcore.person.placeOfActivity">
+                <source>place of activity</source>
+            </trans-unit>
+            <trans-unit id="person.gender">
+                <source>gender</source>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

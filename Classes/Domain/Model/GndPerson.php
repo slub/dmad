@@ -1,6 +1,8 @@
 <?php
 namespace Slub\DmNorm\Domain\Model;
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use Slub\DmNorm\Common\GndLib;
 
 /***
  *
@@ -98,7 +100,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @param \Slub\DmNorm\Domain\Repository\GndWorkRepository $workRepository
      */
-    public function injectWorkRepository(\Slub\DmNorm\Domain\Repository\GndWorkRepository $workRepository)
+    public function injectWorkRepository(\Slub\DmNorm\Domain\Repository\GndWorkRepository $workRepository): void
     {
         $this->workRepository = $workRepository;
     }
@@ -108,7 +110,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $gndId
      */
-    public function getGndId()
+    public function getGndId(): string
     {
         return $this->gndId;
     }
@@ -117,11 +119,12 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the gndId
      * 
      * @param string $gndId
-     * @return void
+     * @return GndPerson
      */
-    public function setGndId($gndId)
+    public function setGndId($gndId): GndPerson
     {
         $this->gndId = $gndId;
+        return $this;
     }
 
     /**
@@ -129,9 +132,20 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $name
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Sets the name
+     *
+     * @retun string $nae
+     */
+    public function setName(string $name): GndPerson
+    {
+        $this->name = $name;
+        return $this;
     }
 
     /**
@@ -139,7 +153,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \DateTime $dateOfBirth
      */
-    public function getDateOfBirth()
+    public function getDateOfBirth(): ?\DateTime
     {
         return $this->dateOfBirth;
     }
@@ -149,7 +163,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \DateTime $dateOfDeath
      */
-    public function getDateOfDeath()
+    public function getDateOfDeath(): ?\DateTime
     {
         return $this->dateOfDeath;
     }
@@ -159,7 +173,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $placeOfBirth
      */
-    public function getPlaceOfBirth()
+    public function getPlaceOfBirth(): string
     {
         return $this->placeOfBirth;
     }
@@ -169,7 +183,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $placeOfDeath
      */
-    public function getPlaceOfDeath()
+    public function getPlaceOfDeath(): string
     {
         return $this->placeOfDeath;
     }
@@ -179,7 +193,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $placeOfActivity
      */
-    public function getPlaceOfActivity()
+    public function getPlaceOfActivity(): string
     {
         return $this->placeOfActivity;
     }
@@ -189,7 +203,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $geographicAreaCode
      */
-    public function getGeographicAreaCode()
+    public function getGeographicAreaCode(): string
     {
         return $this->geographicAreaCode;
     }
@@ -199,7 +213,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string $gender
      */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->gender;
     }
@@ -208,18 +222,18 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * pull information from gndId
      * 
      * @param $gndId
-     * @return boolean
+     * @return bool
      */
-    public function pullGndInfo()
+    public function pullGndInfo(): bool
     {
         $dates = [];
-        $url = 'http://sdvlodpro.slub-dresden.de:9200/gnd_marc21/_doc/' . $this->gndId . '/_source';
+        $url = GndLib::DATASERVER . GndLib::DATAPATH . $this->gndId;
         $headers = @get_headers($url);
         if (!$headers || $headers[0] == 'HTTP/1.0 404 Not Found' || $headers[0] == 'HTTP/1.1 404 Not Found') {
             return false;
         }
         $deepArray = json_decode(file_get_contents($url), true);
-        $personArray = \Slub\DmNorm\Lib\GndLib::flattenDataSet($deepArray);
+        $personArray = GndLib::flattenDataSet($deepArray);
 
         // purge placeOfActivity as multiple values will be concatenated later
         $this->placeOfActivity = '';
@@ -306,6 +320,8 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
             //$this->geographicAreaCode = $personArray['043']['c'];
         }
         $this->unmodifiedGndData = true;
+
+        return true;
     }
 
     /**
@@ -313,7 +329,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return string gndStatus
      */
-    public function getGndStatus()
+    public function getGndStatus(): string
     {
         return $this->gndStatus;
     }
@@ -323,7 +339,7 @@ class GndPerson extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * 
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Slub\DmNorm\Domain\Model\Work>
      */
-    public function getWorks()
+    public function getWorks(): ObjectStorage
     {
         return $this->works;
     }

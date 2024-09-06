@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+		<header/>
+		<body>
+            <trans-unit id="work">
+                <source>work</source>
+            </trans-unit>
+            <trans-unit id="person">
+                <source>person</source>
+            </trans-unit>
+            <trans-unit id="genre">
+                <source>genre</source>
+            </trans-unit>
+            <trans-unit id="instrument">
+                <source>instrument</source>
+            </trans-unit>
+            <trans-unit id="mediumOfPerformance">
+                <source>medium of performance</source>
+            </trans-unit>
+            <trans-unit id="geographic_area_code">
+                <source>geographic code</source>
+            </trans-unit>
+            <trans-unit id="name" resname="name">
+                <source>name</source>
+            </trans-unit>
+            <trans-unit id="display_as" resname="display_as">
+                <source>display as</source>
+            </trans-unit>
+            <trans-unit id="gnd_id" resname="gnd_id">
+                <source>GND ID</source>
+            </trans-unit>
+            <trans-unit id="super_form" resname="super_gnd_genre">
+                <source>broader term</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

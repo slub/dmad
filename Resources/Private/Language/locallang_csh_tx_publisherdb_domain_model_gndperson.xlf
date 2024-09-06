@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="EXT:publisher_db/Resources/Private/Language/locallang_csh" date="2022-12-19T13:20:31Z" product-name="publisher_db">
+        <header/>
+        <body>
+        <trans-unit id="date_of_birth.description" resname="date_of_birth.description">
+            <source>date of birth</source>
+        </trans-unit>
+        <trans-unit id="date_of_death.description" resname="date_of_death.description">
+            <source>date of death</source>
+        </trans-unit>
+        <trans-unit id="geographic_area_code.description" resname="geographic_area_code.description">
+            <source>geographic code</source>
+        </trans-unit>
+        <trans-unit id="gender.description" resname="gender.description">
+            <source>gender</source>
+        </trans-unit>
+        <trans-unit id="unmodified_gnd_data.description" resname="unmodified_gnd_data.description">
+            <source>GND data are unmodified</source>
+        </trans-unit>
+        <trans-unit id="gnd_status.description" resname="gnd_status.description">
+            <source>GND status</source>
+        </trans-unit>
+        <trans-unit id="final.description" resname="final.description">
+            <source>final</source>
+        </trans-unit>
+        <trans-unit id="works.description" resname="works.description">
+            <source>works</source>
+        </trans-unit>
+        <trans-unit id="place_of_birth.description" resname="place_of_birth.description">
+            <source>place of birth</source>
+        </trans-unit>
+        <trans-unit id="place_of_death.description" resname="place_of_death.description">
+            <source>place of death</source>
+        </trans-unit>
+        <trans-unit id="place_of_activity.description" resname="place_of_activity.description">
+            <source>place of activity</source>
+        </trans-unit>
+        </body>
+    </file>
+</xliff>
