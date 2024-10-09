@@ -25,7 +25,7 @@ CREATE TABLE tx_dmnorm_domain_model_gndwork (
 	super_work int(11) unsigned DEFAULT '0',
 	instruments int(11) unsigned DEFAULT '0' NOT NULL,
 	gnd_genres int(11) unsigned DEFAULT '0' NOT NULL,
-	main_instrumentation int(11) unsigned DEFAULT '0'
+	medium_of_performance int(11) unsigned DEFAULT '0'
 
 );
 
