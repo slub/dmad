@@ -1,5 +1,5 @@
 {
-    "name": "slub/dm-norm",
+    "name": "slub/dm-ad",
     "type": "typo3-cms-extension",
     "description": "The Dresden module for authority data",
     "authors": [
@@ -36,12 +36,12 @@
         ]
     },
     "replace": {
-        "slub/dmnorm": "self.version",
-        "typo3-ter/dmnorm": "self.version"
+        "slub/dmad": "self.version",
+        "typo3-ter/dmad": "self.version"
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "dm_norm",
+            "extension-key": "dm_ad",
             "ignore-as-root": false,
             "web-dir": ".Build/Web"
         }
