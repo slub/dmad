@@ -42,9 +42,9 @@ CREATE TABLE tx_dmnorm_domain_model_gndperson (
 	geographic_area_code varchar(255) DEFAULT '' NOT NULL,
 	gender varchar(255) DEFAULT '' NOT NULL,
 	works int(11) unsigned DEFAULT '0' NOT NULL,
-	place_of_birth int(11) unsigned DEFAULT '0',
-	place_of_death int(11) unsigned DEFAULT '0',
-	place_of_activity int(11) unsigned DEFAULT '0' NOT NULL
+	place_of_birth varchar(255) DEFAULT '' NOT NULL,
+	place_of_death varchar(255) DEFAULT '' NOT NULL,
+	place_of_activity varchar(255) DEFAULT '' NOT NULL
 
 );
 #
